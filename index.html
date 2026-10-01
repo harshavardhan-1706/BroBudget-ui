@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | BroBudget</title><link rel="stylesheet" href="css/dashboard.css"></head>
+<body><div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><div class="logo">₹</div><div><b>Bro<span style="color:#67e8f9">Budget</span></b><small>Smart finance workspace</small></div></div>
+<div class="nav-title">Workspace</div><nav class="nav"><a href="index.html" data-page="index.html"><span>⌂</span>Dashboard</a><a href="income.html" data-page="income.html"><span>↗</span>Income</a><a href="expenses.html" data-page="expenses.html"><span>↘</span>Expenses</a><a href="analytics.html" data-page="analytics.html"><span>◔</span>Analytics</a><a href="goals.html" data-page="goals.html"><span>◎</span>Savings Goals</a><a href="history.html" data-page="history.html"><span>▦</span>Monthly History</a><a href="transactions.html" data-page="transactions.html"><span>↔</span>Transactions</a><a href="settings.html" data-page="settings.html"><span>⚙</span>Settings</a></nav><div class="user-card"><div class="avatar">BB</div><div><strong id="sidebarUser">BroBudget User</strong><small>Personal finance</small></div></div></aside>
+<main class="main"><header class="topbar"><div class="page-title"><h1>Dashboard</h1><p>Elegant money management with clear insights.</p></div><div class="actions"><button class="btn mobile-toggle" id="mobileToggle">☰</button><button class="btn primary" data-open-modal>＋ Add transaction</button></div></header>
+<section class="container">
+<div class="grid kpis">
+<div class="card kpi"><span class="label">Total Balance</span><div class="value positive" data-kpi="balance">₹0</div><span class="meta">Income minus expenses</span></div>
+<div class="card kpi"><span class="label">Total Income</span><div class="value income" data-kpi="income">₹0</div><span class="meta">All recorded income</span></div>
+<div class="card kpi"><span class="label">Total Expenses</span><div class="value expense" data-kpi="expense">₹0</div><span class="meta">All recorded spending</span></div>
+<div class="card kpi"><span class="label">Savings Rate</span><div class="value" id="savingRate">0%</div><span class="meta">Current savings ratio</span></div>
+</div>
+<div class="grid two" style="margin-top:16px">
+<div class="card"><div class="section-head"><h2>Balance trend</h2><span class="legend"><span><i class="dot"></i>Balance</span></span></div><div class="chart"><canvas id="balanceChart"></canvas></div></div>
+<div class="card"><div class="section-head"><h2>Quick navigation</h2></div><div class="grid">
+<a class="btn" href="income.html">↗ Open Income</a><a class="btn" href="expenses.html">↘ Open Expenses</a><a class="btn" href="analytics.html">◔ Open Analytics</a><a class="btn" href="goals.html">◎ Open Savings Goals</a><a class="btn" href="transactions.html">↔ Open Transactions</a></div></div>
+</div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h2>Recent transactions</h2><a class="btn" href="transactions.html">View all</a></div><div class="table-wrap"><table class="table"><thead><tr><th>Transaction</th><th>Date</th><th>Amount</th></tr></thead><tbody id="recentBody"></tbody></table></div></div>
+</section></main></div>
+<div class="modal" id="txModal"><div class="modal-box"><div class="modal-head"><h2>Add transaction</h2><button class="btn" data-close-modal>×</button></div><form id="txForm" class="form-grid">
+<div class="field"><label>Name</label><input name="name" required placeholder="e.g. Grocery shopping"></div><div class="field"><label>Amount</label><input name="amount" type="number" min="1" required></div>
+<div class="field"><label>Type</label><select name="type"><option value="expense">Expense</option><option value="income">Income</option></select></div>
+<div class="field"><label>Category</label><select name="category"><option>Food</option><option>Housing</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Salary</option><option>Freelance</option><option>Other</option></select></div>
+<div class="field"><label>Date</label><input name="date" type="date" required></div><div class="field"><label>Note</label><input name="note" placeholder="Optional note"></div>
+<div class="field full"><button class="btn primary">Save transaction</button></div></form></div></div><div id="toast" class="toast"></div>
+<script src="js/app.js"></script></body></html>
